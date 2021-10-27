@@ -3,6 +3,7 @@ var Book = require('../models/Book');
 
 
 exports.index = async function(req, res) {
+    console.log("entered bookController.index");
     const promise = await Book.findAll();
     res.send(promise);
 };

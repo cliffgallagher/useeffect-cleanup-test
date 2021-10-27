@@ -1,22 +1,28 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 
 const ComponentA = () => {
-
+    const [array, setArray] = useState([])
     async function getBooks() {
         console.log("entered getBooks function");
         try {
-            const promise = await fetch('/users');
+            const promise = await fetch('/a');
             const data = await promise.json();
-            console.log(JSON.stringify(data));
+            console.log(data);
+            setArray(data.map(element => <p>{element.book_id}</p>));
         } catch(e) {
             console.log(e);
         }
 
+
+
     }
 
-    getBooks();
+    useEffect(() => {
+        getBooks();
+    }, []);
+    
 
-    return <p>I am component A</p>
+    return <ul>{array}</ul>
 }
 
 export default ComponentA;
