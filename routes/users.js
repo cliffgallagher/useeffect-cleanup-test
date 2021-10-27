@@ -3,6 +3,7 @@ var router = express.Router();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
+  console.log("made it to users route");
   res.send('respond with a resource');
 });
 

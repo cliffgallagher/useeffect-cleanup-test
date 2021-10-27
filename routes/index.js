@@ -3,6 +3,9 @@ var router = express.Router();
 var bookController =require('../controllers/bookController');
 
 /* GET home page. */
-router.get('/', bookController.index);
+router.get('/', function(req, res, next) {
+  console.log("entered route in index.js")
+  next()
+}, bookController.index);
 
 module.exports = router;
